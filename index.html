@@ -6,14 +6,24 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+	<script src="https://use.fontawesome.com/69a19054b1.js"></script>
 </head>
 <body>
-	<div id="habits">
-		<input type="text" placeholder="ex. Nicole - drank a soda" class="add">
-		<input type="submit" class="button" value="Add Habit">
+	<header>Insert Catchy Title Here</header>
+	<div id="tracking">
+		<img id="avatar" src="https://robohash.org/YOUR-TEXT.png">  <!-- YOUR-TEXT will be user input name -->
 	</div>
-	<div id="rewards">
-		
+	<div id="categories">
+		<div id="habits">
+			<h2>Habits</h2>
+			<input type="text" placeholder="ex. Nicole - drank a soda" class="add">
+			<button type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			<p><i class="fa fa-minus" aria-hidden="true"></i>Alli - procrastinates<i class="fa fa-trash" aria-hidden="true"></i></p>
+		</div>
+		<div id="rewards">
+			<h2>Rewards</h2>
+			<p>5<img id="coin" src="http://i.imgur.com/A5oudpS.jpg"> 1 hour of Netflix</p>
+		</div>
 	</div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/app.js"></script>

@@ -2,6 +2,34 @@
 	font-family: 'Droid Serif', serif;
 }
 
-/*#habits, #rewards {
+header {
+	font-size: 2.5em;
+	text-align: center;
+}
+
+#avatar {
+	width: 4em;
+	height: 4em;
+	padding-left: 17em;
+}
+
+#categories {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+h2 {
+	text-align: center;
+	border-bottom: solid;
+}
+
+#habits, #rewards {
 	border-style: solid;
-}*/
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+#coin {
+	width: 0.813em;
+}
