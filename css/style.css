@@ -1,5 +1,12 @@
 * {
 	font-family: 'Droid Serif', serif;
+	box-sizing: border-box;
+}
+
+html {
+	background-image: url("http://i.imgur.com/L8D5y1Z.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 header {
@@ -26,10 +33,25 @@ h2 {
 
 #habits, #rewards {
 	border-style: solid;
-	padding-left: 5em;
+	background-color: #FFF0E0;
+}
+
+#habits {
+	padding-left: 3em;
+	padding-right: 3em;
+}
+
+#rewards{
 	padding-right: 5em;
+	padding-left: 5em;
 }
 
 #coin {
 	width: 0.813em;
+}
+
+button {
+	background-color: #E8CFC0;
+	border: none;
+	cursor: pointer;
 }
