@@ -55,3 +55,14 @@ button {
 	border: none;
 	cursor: pointer;
 }
+
+#tracking {
+	display: flex;
+	align-content: center;
+}
+
+.progress {
+	border-style: solid;
+	width: 25em;
+	background-color: gold;
+}
