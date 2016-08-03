@@ -64,5 +64,11 @@ button {
 .progress {
 	border-style: solid;
 	width: 25em;
+	height: 2em;
+	margin-top: 0.7em;
+}
+
+.progress-bar {
 	background-color: gold;
+	height: 100%;
 }
