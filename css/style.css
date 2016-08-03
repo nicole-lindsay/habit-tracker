@@ -66,9 +66,11 @@ button {
 	width: 25em;
 	height: 2em;
 	margin-top: 0.7em;
+	position: relative;
 }
 
 .progress-bar {
 	background-color: gold;
 	height: 100%;
+	position: absolute;
 }
