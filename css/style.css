@@ -46,14 +46,18 @@ h2 {
 	padding-left: 5em;
 }
 
-#coin {
-	width: 0.813em;
+#rewards img {
+	width: 0.9em;
 }
 
 button {
 	background-color: #E8CFC0;
 	border: none;
 	cursor: pointer;
+}
+
+#rewards button {
+	background-color: #FFF0E0;
 }
 
 #tracking {

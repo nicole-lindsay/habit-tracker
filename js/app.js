@@ -3,23 +3,28 @@ $(document).ready(function() {
     //Takes the name & habit of user and adds it to the list
     $(".add").click(function() {
         var userInput = $(".input").val();
-        $.ajax({
-            type: 'POST',
-            beforeSend: function(request) {
-                request.setRequestHeader("x-api-key", "3191fef4-baf6-41eb-862f-4c6b84cfc985");
-                request.setRequestHeader('x-api-user', "70e37e61-a410-486d-856c-3eaa2ea3dcd1");
-            },
-            data: {
-                text: userInput,
-                type: 'habit'
-            },
-            url: "https://habitica.com/api/v3/tasks/user",
-            success: function(response) {
-                console.log(response.data);
-            }
-        })
-        $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + userInput + '<button class="trash"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
-        $(".input").val('');
+        //prohibits user from submitting blank field
+        if ($('.input').val('')) {
+            alert("Oops! You forgot to add a habit! ex. Anna - bites nails");
+        } else {
+            $.ajax({
+                type: 'POST',
+                beforeSend: function(request) {
+                    request.setRequestHeader("x-api-key", "3191fef4-baf6-41eb-862f-4c6b84cfc985");
+                    request.setRequestHeader('x-api-user', "70e37e61-a410-486d-856c-3eaa2ea3dcd1");
+                },
+                data: {
+                    text: userInput,
+                    type: 'habit'
+                },
+                url: "https://habitica.com/api/v3/tasks/user",
+                success: function(response) {
+                    console.log(response.data);
+                }
+            });
+            $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + userInput + '<button class="trash"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
+            $(".input").val('');
+        }
     });
 
 
@@ -58,7 +63,19 @@ $(document).ready(function() {
 
     //minus button will subtract from progress bar
     $('body').on('click', '.minus', function() {
-    	
+
+        progressCount -= 5;
+        if (progressCount >= 0) {
+            $('.progress-bar').animate({
+                width: progressCount + '%'
+            });
+        } else {
+            progressCount = 0;
+        }
+    });
+
+    //pressing coin subtracts from progress bar
+    $('body').on('click', '.fiveCoin', function() {
         progressCount -= 5;
         if (progressCount >= 0) {
             $('.progress-bar').animate({
