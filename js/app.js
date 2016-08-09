@@ -4,8 +4,8 @@ $(document).ready(function() {
     $(".add").click(function() {
         var userInput = $(".input").val();
         //prohibits user from submitting blank field
-        if ($('.input').val('')) {
-            alert("Oops! You forgot to add a habit! ex. Anna - bites nails");
+        if ($('.input').val() == '') {
+            alert("Oops! You forgot to add a habit!");
         } else {
             $.ajax({
                 type: 'POST',
@@ -31,23 +31,36 @@ $(document).ready(function() {
     //deletes the habit and buttons
     $('body').on('click', '.trash', function() {
         var id = $(this).data('id');
-        $(this).parent().remove();
-        $.ajax({
-            type: 'DELETE',
-            beforeSend: function(request) {
-                request.setRequestHeader("x-api-key", "3191fef4-baf6-41eb-862f-4c6b84cfc985");
-                request.setRequestHeader('x-api-user', "70e37e61-a410-486d-856c-3eaa2ea3dcd1");
-            },
-            url: "https://habitica.com/api/v3/tasks/" + id,
-            success: function(response) {
-                console.log(response.data);
-            }
-        })
+        if (id !== undefined) {
+            $(this).parent().remove();
+            $.ajax({
+                type: 'DELETE',
+                beforeSend: function(request) {
+                    request.setRequestHeader("x-api-key", "3191fef4-baf6-41eb-862f-4c6b84cfc985");
+                    request.setRequestHeader('x-api-user', "70e37e61-a410-486d-856c-3eaa2ea3dcd1");
+                },
+                url: "https://habitica.com/api/v3/tasks/" + id,
+                success: function(response) {
+                    console.log(response.data);
+                }
+            })
+        }
 
     });
 
     //plus button, will add to progress bar
-    var progressCount = 0;
+
+    var progressCount;
+
+    if (localStorage.getItem("progressCount") > 0) {
+        $('.progress-bar').animate({
+            width: localStorage.getItem("progressCount") + '%'
+        });
+        progressCount = localStorage.getItem("progressCount")
+
+    } else {
+        progressCount = 0;
+    }
 
     $('body').on('click', '.plus', function() {
 
@@ -59,6 +72,8 @@ $(document).ready(function() {
         } else {
             progressCount = 100;
         }
+
+        localStorage.setItem("progressCount", progressCount);
     });
 
     //minus button will subtract from progress bar
@@ -72,10 +87,13 @@ $(document).ready(function() {
         } else {
             progressCount = 0;
         }
+
+        localStorage.setItem("progressCount", progressCount);
     });
 
     //pressing coin subtracts from progress bar
-    $('body').on('click', '.fiveCoin', function() {
+    $('body').on('click', '.rewardCategory', function(e) {
+        e.preventDefault();
         progressCount -= 5;
         if (progressCount >= 0) {
             $('.progress-bar').animate({

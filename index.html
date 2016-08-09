@@ -11,7 +11,7 @@
 <body>
 	<header>Insert Catchy Title Here</header>
 	<div id="tracking">
-		<img src="https://robohash.org/YOUR-TEXT.png" id="avatar">  <!-- YOUR-TEXT will be user input name -->
+		<img src="https://robohash.org/YOUR-TEXT.png" id="avatar">  <!-- YOUR-TEXT needs to correlate to user, use .attr('src')-->
 		<div class="progress">
   			<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
   		</div>
@@ -29,7 +29,9 @@
 		</div>
 		<div id="rewards">
 			<h2>Rewards</h2>
-			<p><button>5<img class="fiveCoin" src="http://i.imgur.com/T4BNxw7.jpg"></button> 1 hour of Netflix</p>
+			<p>
+				<button class='rewardCategory'><span id="rewardsVal">5</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button> 1 hour of Netflix
+			</p>
 		</div>
 	</div>
 <script type="text/javascript" src="js/jquery.js"></script>
