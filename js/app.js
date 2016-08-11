@@ -1,8 +1,22 @@
 $(document).ready(function() {
 
+    $("#login").fadeIn(1000);
+
+    $(".enter").click(function(e) {
+        e.preventDefault();
+        var userEmail = $("input[name='email']").val();
+        if (userEmail == '') {
+            alert("Please enter your email address!");
+        } else {
+            localStorage.setItem("userEmail", userEmail);
+            $("#login").fadeOut(1000);
+        }
+    });
+
+
     //Takes the name & habit of user and adds it to the list
     $(".add").click(function() {
-        var userInput = $(".input").val();
+        var userInput = localStorage.getItem("userEmail") + " - " + $(".input").val();
         //prohibits user from submitting blank field
         if ($('.input').val() == '') {
             alert("Oops! You forgot to add a habit!");
@@ -20,10 +34,10 @@ $(document).ready(function() {
                 url: "https://habitica.com/api/v3/tasks/user",
                 success: function(response) {
                     console.log(response.data);
+                    $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + userInput + '<button class="trash"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
+                    $(".input").val('');
                 }
             });
-            $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + userInput + '<button class="trash"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
-            $(".input").val('');
         }
     });
 
