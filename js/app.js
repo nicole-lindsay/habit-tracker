@@ -4,19 +4,20 @@ $(document).ready(function() {
 
     $(".enter").click(function(e) {
         e.preventDefault();
-        var userEmail = $("input[name='email']").val();
-        if (userEmail == '') {
-            alert("Please enter your email address!");
+        var userName = $("input[name='username']").val();
+        if (userName == '') {
+            alert("Please enter your username!");
         } else {
-            localStorage.setItem("userEmail", userEmail);
+            localStorage.setItem("userName", userName);
             $("#login").fadeOut(1000);
         }
     });
 
+$('#avatar').attr('src', 'https://robohash.org/'+ localStorage.getItem("userName") +'.png')
 
     //Takes the name & habit of user and adds it to the list
     $(".add").click(function() {
-        var userInput = localStorage.getItem("userEmail") + " - " + $(".input").val();
+        var userInput = localStorage.getItem("userName") + " - " + $(".input").val();
         //prohibits user from submitting blank field
         if ($('.input').val() == '') {
             alert("Oops! You forgot to add a habit!");
