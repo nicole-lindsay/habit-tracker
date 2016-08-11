@@ -34,7 +34,9 @@ $(document).ready(function() {
                 url: "https://habitica.com/api/v3/tasks/user",
                 success: function(response) {
                     console.log(response.data);
-                    $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + userInput + '<button class="trash"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
+                    if (response.data.type == "habit") {
+                        $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + response.data.text + '<button class="trash" data-id="' + response.data._id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
+                    }
                     $(".input").val('');
                 }
             });
