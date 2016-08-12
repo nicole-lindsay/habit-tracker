@@ -10,10 +10,10 @@ $(document).ready(function() {
         } else {
             localStorage.setItem("userName", userName);
             $("#login").fadeOut(1000);
+            $('#avatar').attr('src', 'https://robohash.org/'+ localStorage.getItem("userName") +'.png')
         }
     });
 
-$('#avatar').attr('src', 'https://robohash.org/'+ localStorage.getItem("userName") +'.png')
 
     //Takes the name & habit of user and adds it to the list
     $(".add").click(function() {
