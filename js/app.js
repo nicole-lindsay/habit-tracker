@@ -57,7 +57,7 @@ $(document).ready(function() {
         url: "https://habitica.com/api/v3/tasks/user",
         success: function(response) {
             if (response.data.type == "rewards") {
-                $("#rewards").append('<p><button class="rewardCategory"><span id="rewardsVal">' + /*needs to reflect amt taken from progress bar*/ +'</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>' + response.data.text + '</p>')
+                $("#rewards").append('<p><button class="rewardCategory"><span id="rewardsVal">' + response.data.value +'</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>' + response.data.text + '</p>')
             }
         }
     });
@@ -169,8 +169,8 @@ $(document).ready(function() {
         success: function(response) {
             console.log(response.data);
             for (var i = 0; i < response.data.length; i++) {
-                console.log('rewards', response.data[i]);
-                if (response.data[i].type == "rewards") {
+                if (response.data[i].type == "reward") {
+                	console.log('reward', response.data[i]);
                     $("#rewards").append('<p><button class="rewardCategory"><span id="rewardsVal">'+ response.data[i].value +'</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>'+ response.data[i].text +'</p>');
                 }
             }
