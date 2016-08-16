@@ -10,7 +10,7 @@ $(document).ready(function() {
         } else {
             localStorage.setItem("userName", userName);
             $("#login").fadeOut(1000);
-            $('#avatar').attr('src', 'https://robohash.org/'+ localStorage.getItem("userName") +'.png')
+            $('#avatar').attr('src', 'https://robohash.org/' + localStorage.getItem("userName") + '.png')
         }
     });
 
@@ -34,7 +34,6 @@ $(document).ready(function() {
                 },
                 url: "https://habitica.com/api/v3/tasks/user",
                 success: function(response) {
-                    console.log(response.data);
                     if (response.data.type == "habit") {
                         $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + response.data.text + '<button class="trash" data-id="' + response.data._id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
                     }
@@ -43,6 +42,27 @@ $(document).ready(function() {
             });
         }
     });
+
+
+    //Meant to append rewards from Habitica and post to HABITracker
+    $.ajax({
+        type: 'POST',
+        beforeSend: function(request) {
+            request.setRequestHeader("x-api-key", "3191fef4-baf6-41eb-862f-4c6b84cfc985");
+            request.setRequestHeader('x-api-user', "70e37e61-a410-486d-856c-3eaa2ea3dcd1");
+        },
+        data: {
+            type: 'reward'
+        },
+        url: "https://habitica.com/api/v3/tasks/user",
+        success: function(response) {
+            if (response.data.type == "rewards") {
+                $("#rewards").append('<p><button class="rewardCategory"><span id="rewardsVal">' + /*needs to reflect amt taken from progress bar*/ +'</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>' + response.data.text + '</p>')
+            }
+        }
+    });
+
+
 
 
     //deletes the habit and buttons
@@ -130,9 +150,7 @@ $(document).ready(function() {
         },
         url: "https://habitica.com/api/v3/tasks/user",
         success: function(response) {
-            // console.log(response.data);
             for (var i = 0; i < response.data.length; i++) {
-                // console.log('habit', response.data[i]);
                 if (response.data[i].type == "habit") {
                     $(".items").append('<p><button class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>&nbsp;<button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>' + response.data[i].text + '<button class="trash" data-id="' + response.data[i]._id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></p>');
                 }
@@ -140,5 +158,23 @@ $(document).ready(function() {
         }
     });
 
+    //Gets rewards posted on Habitica
+    $.ajax({
+        type: 'GET',
+        beforeSend: function(request) {
+            request.setRequestHeader("x-api-key", "3191fef4-baf6-41eb-862f-4c6b84cfc985");
+            request.setRequestHeader('x-api-user', "70e37e61-a410-486d-856c-3eaa2ea3dcd1");
+        },
+        url: "https://habitica.com/api/v3/tasks/user",
+        success: function(response) {
+            console.log(response.data);
+            for (var i = 0; i < response.data.length; i++) {
+                console.log('rewards', response.data[i]);
+                if (response.data[i].type == "rewards") {
+                    $("#rewards").append('<p><button class="rewardCategory"><span id="rewardsVal">'+ response.data[i].value +'</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>'+ response.data[i].text +'</p>');
+                }
+            }
+        }
+    });
 
 });
