@@ -105,6 +105,7 @@ $(document).ready(function() {
         localStorage.setItem("progressCount", progressCount);
     });
 
+
     //Gets habits posted on Habitica, appends to HABITracker
     $.ajax({
         type: 'GET',
@@ -133,23 +134,19 @@ $(document).ready(function() {
         success: function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 if (response.data[i].type == "reward") {
-                	console.log('reward', response.data[i], response.data[i]);
-                    $("#rewards").append('<p><button class="rewardCategory"><span class="rewardsVal">'+ 
-                    	response.data[i].value +'</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>'+ 
-                    	response.data[i].text +'</p>');
+                    var dataVal = response.data[i].value;
+                    $("#rewards").append('<p><button class="rewardCategory"><span class="rewardsVal">' +
+                        dataVal + '</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>' +
+                        response.data[i].text + '</p>');
                 }
             }
         }
     });
 
-    //
-    // event listener?
-    $('body').on('click', '.rewardCategory', function(){
-    	// $(this)
-    	// console.log($(this).find('.rewardsVal').text()); // .find()
-    	// reduce the bar by the value of the reward
-    	var value = parseInt($(this).find('.rewardsVal').text());
-    	progressCount -= value;
+
+    $('body').on('click', '.rewardCategory', function() {
+        var value = parseInt($(this).find('.rewardsVal').text());
+        progressCount -= value;
         if (progressCount >= 0) {
             $('.progress-bar').animate({
                 width: progressCount + '%'

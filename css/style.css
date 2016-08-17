@@ -18,13 +18,12 @@ header {
 #avatar {
 	width: 4em;
 	height: 4em;
-	margin-left: 17em;
+	margin-left: 23em;
 }
 
 #categories {
 	display: flex;
-/*	align-items: center;
-*/	justify-content: space-around;
+	justify-content: space-around;
 }
 
 h2 {
@@ -32,10 +31,15 @@ h2 {
 	border-bottom: solid;
 }
 
+#habits .input {
+	width: 16.8em;
+}
+
 #habits, #rewards {
 	border-radius: 0.5em;
 	border-style: solid;
 	background-color: #FFF0E0;
+	width: 25em;
 }
 
 #habits {
@@ -45,8 +49,8 @@ h2 {
 }
 
 #rewards{
-	padding-right: 5em;
-	padding-left: 5em;
+	padding-right: 3em;
+	padding-left: 3em;
 }
 
 #rewards img {
