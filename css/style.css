@@ -23,8 +23,8 @@ header {
 
 #categories {
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
+/*	align-items: center;
+*/	justify-content: space-around;
 }
 
 h2 {
@@ -33,6 +33,7 @@ h2 {
 }
 
 #habits, #rewards {
+	border-radius: 0.5em;
 	border-style: solid;
 	background-color: #FFF0E0;
 }
