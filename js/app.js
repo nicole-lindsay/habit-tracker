@@ -132,13 +132,18 @@ $(document).ready(function() {
         },
         url: "https://habitica.com/api/v3/tasks/user",
         success: function(response) {
+            var rewards = [];
             for (var i = 0; i < response.data.length; i++) {
                 if (response.data[i].type == "reward") {
-                    var dataVal = response.data[i].value;
-                    $("#rewards").append('<p><button class="rewardCategory"><span class="rewardsVal">' +
-                        dataVal + '</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>' +
-                        response.data[i].text + '</p>');
+                    rewards.push(response.data[i]);
                 }
+            }
+            rewards = _.sortBy(rewards, "value");
+            for (var i = 0; i < rewards.length; i++) {
+                var dataVal = rewards[i].value;
+                $("#rewards").append('<p><button class="rewardCategory"><span class="rewardsVal">' +
+                    dataVal + '</span><img src="http://i.imgur.com/T4BNxw7.jpg"></button>' +
+                    rewards[i].text + '</p>');
             }
         }
     });
@@ -162,3 +167,13 @@ $(document).ready(function() {
 //Options for instructions
 //At login screen<--easiest option...
 //jquery tool plugin<--fav option so far
+
+/*
+Instructions after login screen
+Do you want to explain what everything is and how it works? If so, start from top to bottom
+then left to right
+Avatar, progress bar
+Habits, adding habit
+Plus, Minus, Trash buttons
+Rewards
+*/
