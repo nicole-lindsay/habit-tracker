@@ -15,6 +15,7 @@ $(document).ready(function() {
     });
 
 
+
     //Takes the name & habit of user and adds it to the list
     $(".add").click(function() {
         var userInput = localStorage.getItem("userName") + " - " + $(".input").val();
@@ -160,4 +161,19 @@ $(document).ready(function() {
         }
         localStorage.setItem("progressCount", progressCount);
     });
+
+
+    // $(window).load(function() {
+    //     console.log('running');
+    //     $("#joyRideTipContent").joyride({
+    //         postStepCallback: function(index, tip) {
+    //             if (index == 2) {
+    //                 $(this).joyride('set_li', false, 1);
+    //             }
+    //         },
+    //         modal: true,
+    //         expose: true
+    //     });
+    // });
+
 });

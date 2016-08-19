@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>HABITracker</title>
+    <link rel=" stylesheet" type="text/css" href="css/joyride-2.1.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
     <script src="https://use.fontawesome.com/69a19054b1.js"></script>
-    <link rel=" stylesheet" type="text/css" href="css/joyride-2.1.css">
 </head>
 
 <body>
-    <header>HABITracker</header>
+    <header class='so-awesome'>HABITracker</header>
     <div id="tracking">
         <img src="https://robohash.org/YOUR-TEXT.png" id="avatar">
         <div class="progress">
@@ -40,18 +40,15 @@
             <button class="enter">Login</button>
         </form>
     </div>
+
     <ol id="tips">
-        <li id="tipGuide">This is your avatar, it was created based on your username by robohash.org</li>
-        <li id="tipGuide">Right next to your avatar is the progress bar, it starts out empty, but will fill up as you press the Plus button. Or, as you press the Minus button, the amount in the progress bar will decrease.</li>
-        <li id="tipGuide">This is where you will enter your habits! You do not have to enter your name/username here, just the habit itself.</li>
-        <li id="tipGuide">The plus button will increase the amount in the progress bar every time you press it.</li>
-        <li id="tipGuide">The minus button will decrease the amount in the progress bar every time you press it.</li>
-        <li id="tipGuide">The trash button will delete the habit entirely. This does not work like a reset button, pressing this does not affect the progress bar.</li>
-        <li id="tipGuide">Listed here are some rewards for filling up the progress bar. As you fill the bar, you'll be able to redeem rewards with higher value.</li>
-        <li id="tipGuide">Lastly, have fun and remember that it only takes 21 days to make or break a habit!</li>
+        <li data-class="1" data-text="Next">This is your avatar, it was created based on your username by robohash.org</li> 
+        <li data-id="2" data-button="Next" data-options="tipLocation:right">Right next to your avatar is the progress bar, it starts out empty, but will fill up as you press the Plus button. Or, as you press the Minus button, the amount in the progress bar will decrease.</li> 
+        <li data-id="3" data-button="Next">This is where you will enter your habits! You do not have to enter your name/username here, just the habit itself. The plus button will increase the amount in the progress bar every time you press it. The minus button will decrease the amount in the progress bar every time you press it. The trash button will delete the habit entirely. This does not work like a reset button, pressing this does not affect the progress bar.</li> 
+        <li data-id="4" data-button="Next">Listed here are some rewards for filling up the progress bar. As you fill the bar, you'll be able to redeem rewards with higher value.</li>
+        <li data-id="5" data-button="Close">Lastly, have fun and remember that it only takes 21 days to make or break a habit!</li> 
     </ol>
 
-    <script src="js/jquery.joyride-2.1.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
