@@ -65,7 +65,6 @@ $(document).ready(function() {
 
     //plus button, will add to progress bar
     var progressCount;
-
     if (localStorage.getItem("progressCount") > 0) {
         $('.progress-bar').animate({
             width: localStorage.getItem("progressCount") + '%'
@@ -159,21 +158,6 @@ $(document).ready(function() {
         } else {
             progressCount = 0;
         }
-    })
-
-
+        localStorage.setItem("progressCount", progressCount);
+    });
 });
-
-//Options for instructions
-//At login screen<--easiest option...
-//jquery tool plugin<--fav option so far
-
-/*
-Instructions after login screen
-Do you want to explain what everything is and how it works? If so, start from top to bottom
-then left to right
-Avatar, progress bar
-Habits, adding habit
-Plus, Minus, Trash buttons
-Rewards
-*/
