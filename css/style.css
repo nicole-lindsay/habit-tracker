@@ -107,3 +107,7 @@ form {
 form input {
 	width: 18em;
 }
+
+#tips {
+	display: none;
+}
