@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>HABITracker</title>
-    <link rel=" stylesheet" type="text/css" href="css/joyride-2.1.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
@@ -39,16 +38,15 @@
             <input type="username" name="username">
             <button class="enter">Login</button>
         </form>
+        <ol id="tips">
+            <h2>Welcome to HABITracker!</h2>
+            <li>Once you've entered your username, go ahead and start adding habits(good or bad) in the column on the left.</li>
+            <li>The plus button next to your habit will increase the amount in the progress bar every time you press it. The minus button will decrease the amount in the progress bar every time you press it.
+            The trash button will delete the habit entirely. This does not work like a reset button, pressing this does not affect the progress bar.</li>
+            <li>On the right, there are some rewards for filling up the progress bar. As you fill the bar, you'll be able to redeem rewards with higher value.</li>
+            <li>Lastly, have fun and remember that it only takes 21 days to make or break a habit!</li>
+        </ol>
     </div>
-
-    <ol id="tips">
-        <li data-class="1" data-text="Next">This is your avatar, it was created based on your username by robohash.org</li> 
-        <li data-id="2" data-button="Next" data-options="tipLocation:right">Right next to your avatar is the progress bar, it starts out empty, but will fill up as you press the Plus button. Or, as you press the Minus button, the amount in the progress bar will decrease.</li> 
-        <li data-id="3" data-button="Next">This is where you will enter your habits! You do not have to enter your name/username here, just the habit itself. The plus button will increase the amount in the progress bar every time you press it. The minus button will decrease the amount in the progress bar every time you press it. The trash button will delete the habit entirely. This does not work like a reset button, pressing this does not affect the progress bar.</li> 
-        <li data-id="4" data-button="Next">Listed here are some rewards for filling up the progress bar. As you fill the bar, you'll be able to redeem rewards with higher value.</li>
-        <li data-id="5" data-button="Close">Lastly, have fun and remember that it only takes 21 days to make or break a habit!</li> 
-    </ol>
-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/app.js"></script>

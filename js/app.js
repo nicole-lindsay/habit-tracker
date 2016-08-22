@@ -161,19 +161,4 @@ $(document).ready(function() {
         }
         localStorage.setItem("progressCount", progressCount);
     });
-
-
-    // $(window).load(function() {
-    //     console.log('running');
-    //     $("#joyRideTipContent").joyride({
-    //         postStepCallback: function(index, tip) {
-    //             if (index == 2) {
-    //                 $(this).joyride('set_li', false, 1);
-    //             }
-    //         },
-    //         modal: true,
-    //         expose: true
-    //     });
-    // });
-
 });
