@@ -12,9 +12,7 @@ $(document).ready(function() {
             $("#login").fadeOut(1000);
             $('#avatar').attr('src', 'https://robohash.org/' + localStorage.getItem("userName") + '.png')
         }
-    });
-
-
+    })
 
     //Takes the name & habit of user and adds it to the list
     $(".add").click(function() {
@@ -105,7 +103,6 @@ $(document).ready(function() {
         localStorage.setItem("progressCount", progressCount);
     });
 
-
     //Gets habits posted on Habitica, appends to HABITracker
     $.ajax({
         type: 'GET',
@@ -147,7 +144,6 @@ $(document).ready(function() {
             }
         }
     });
-
 
     $('body').on('click', '.rewardCategory', function() {
         var value = parseInt($(this).find('.rewardsVal').text());
